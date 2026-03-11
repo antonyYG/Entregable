@@ -6,7 +6,7 @@
         </x-button>
     </a>
 
-    <form wire:navigate.hover action="{{route('admin.user.destroy',$user)}}" method="post"
+    <form action="{{route('admin.user.destroy',$user)}}" method="post"
     class="delete-form">
         @csrf
         @method('DELETE')
