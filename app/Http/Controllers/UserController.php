@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\UserEditRequest;
+use App\Http\Requests\UserStoreRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -20,23 +22,20 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.user.create');
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(UserStoreRequest $request)
     {
-        //
-    }
+        $data=$request->validated();
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(User $user)
-    {
-        //
+        $user=User::create($data);
+
+        return redirect()->route('admin.user.index');
+
     }
 
     /**
@@ -44,15 +43,24 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
-        //
+        return view('admin.user.edit', compact('user'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, User $user)
+    public function update(UserEditRequest $request, User $user)
     {
-        //
+        $data = $request->validated();
+
+        if(empty($data['password'])){
+            unset($data['password']);
+        }
+
+        $user->update($data);
+
+        return redirect()->route('admin.user.index');
+
     }
 
     /**
@@ -60,6 +68,9 @@ class UserController extends Controller
      */
     public function destroy(User $user)
     {
-        //
+        $user->delete();
+
+        return redirect()->route('admin.user.index');
+
     }
 }
