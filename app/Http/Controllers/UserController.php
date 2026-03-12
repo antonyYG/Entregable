@@ -33,6 +33,7 @@ class UserController extends Controller
         $data=$request->validated();
 
         $user=User::create($data);
+        $user->assignRole('Admin');
 
         return redirect()->route('admin.user.index');
 

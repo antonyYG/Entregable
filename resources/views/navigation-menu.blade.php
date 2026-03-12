@@ -18,7 +18,7 @@
                     <x-nav-link wire:navigate.hover href="{{ route('admin.user.index') }}" :active="request()->routeIs('admin.user.*')">
                         Usuarios
                     </x-nav-link>
-                    <x-nav-link wire:navigate.hover href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
+                    <x-nav-link wire:navigate.hover href="{{ route('admin.report.index') }}" :active="request()->routeIs('dashboard')">
                         Reportes
                     </x-nav-link>
                 </div>

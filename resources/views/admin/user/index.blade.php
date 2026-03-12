@@ -1,4 +1,4 @@
-<x-app-layout>
+<x-app-layout title="Sistema | Usuarios">
     <x-slot name="header">
         <div class="flex items-center justify-between">
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">
@@ -15,11 +15,11 @@
         </div>
     </x-slot>
 
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-10">
-            <div class="bg-white shadow-xl sm:rounded-lg overflow-auto p-12" >
-    @livewire('UserTable')
-</div>
+    <div class="py-6">
+        <div class="w-full px-4 sm:px-6 lg:px-8">
+            <div class="bg-white shadow-xl sm:rounded-lg overflow-auto p-6">
+                @livewire('UserTable')
+            </div>
         </div>
     </div>
 

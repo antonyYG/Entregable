@@ -15,10 +15,9 @@ return new class extends Migration
             $table->id();
             $table->string('img_path');
             $table->foreignId('user_id')->constrained();
-            $table->string('title');
             $table->text('description');
             $table->string('location');
-            $table->enum('state',['done','not done'])->default('done');
+            $table->enum('state',['done','not done'])->default('not done');
             $table->timestamps();
         });
     }

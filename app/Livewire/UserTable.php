@@ -13,6 +13,7 @@ class UserTable extends DataTableComponent
     public function configure(): void
     {
         $this->setPrimaryKey('id');
+        
     }
 
     public function columns(): array
@@ -28,8 +29,9 @@ class UserTable extends DataTableComponent
 
 
             Column::make("Created at", "created_at")
-                ->sortable(),
-            Column::make("Updated at", "updated_at")
+                ->format(function($value){
+                    return $value->format('Y-m-d');
+                })
                 ->sortable(),
             Column::make("Accion")
             ->label(function($row){
